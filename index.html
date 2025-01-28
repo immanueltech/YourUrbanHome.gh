@@ -1,187 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta
-      name="description"
-      content="We serve you with the Best Home Fragrances, Toiletries, Household Cleaning Essentials and many more. Check us out">
-    <meta name="author" content="Immanueltech">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YourUrbanHome.gh</title>
-    <style>
-      .styled-hr {
-        border: 0;
-        height: 2px;
-        background: goldenrod;
-        margin: 20px 0;
-      }
-      .slideshow-container {
-        position: relative;
-        max-width: 1000px;
-        margin: auto;
-      }
-      .slides {
-        display: none;
-      }
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description"
+    content="We serve you with the Best Home Fragrances, Toiletries, Household Cleaning Essentials and many more. Check us out">
+  <meta name="author" content="Immanueltech">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YourUrbanHome.gh</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .styled-hr {
+      border: 0;
+      height: 2px;
+      background: goldenrod;
+      margin: 20px 0;
+    }
+
+    .slideshow-container {
+      position: relative;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .slides {
+      display: none;
+    }
+
+    .center-image {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+      border: 5px solid goldenrod;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;
+    }
+
+    @media (max-width: 600px) {
       .center-image {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 450px;
-        height: 550px;
-        border: 5px solid goldenrod;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        border-radius: 15px;
+        width: 100%;
+        max-width: 300px;
       }
-      .prev,
-      .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: auto;
-        padding: 16px;
-        margin-top: -22px;
-        color: white;
-        font-weight: bold;
-        font-size: 18px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
+
+      .styled-hr {
+        margin: 10px 0;
       }
-      .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
-      }
-      .prev:hover,
-      .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-      }
-      .contact-us {
-        text-align: center;
-        margin-top: 20px;
-      }
-      .contact-us img {
-        width: 30px;
-        vertical-align: middle;
-      }
-      .contact-us p {
-        margin: 5px 0;
+
+      p {
+        margin-inline: 20px;
       }
 
       .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 150px;
-        height: 10vh;
-        background-color: lightgoldenrodyellow;
-        color: whitesmoke;
-        padding: 20px;
-        border-radius: 15px;
-      }
-      .sidebar nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      .sidebar nav ul li {
-        margin-bottom: 10px;
-      }
-      .sidebar nav ul li a {
-        text-decoration: none;
-        color: slategray;
-      }
-      .sidebar nav a:hover {
-        background-color: greenyellow;
+        width: 100%;
+        height: auto;
+        position: relative;
         padding: 10px;
-        border-radius: 15px;
       }
-    </style>
-  </head>
-  <body style="background-color: seashell">
-    <h1 style="color: goldenrod; text-align: center">Your Urban Home</h1>
-    <br>
-    <hr class="styled-hr">
-    <p style="color: slategray; text-align: center; margin-inline: 300px">
-      <span style="font-size: larger; font-weight: bold">We Serve</span> you
-      with the best
-      <b><i>"Home Fragrances, Toiletries, Household Cleaning Essentials"</i></b>
-      and many more.
-    </p>
-    <!--<p style="color:slategray; text-align:center; margin-inline:300px;">We <big><b>Serve</b></big> you with the best <b><i>"Home Fragrances, Toiletries, Household Cleaning Essentials"</i></b> and many more.</p>-->
-    <hr class="styled-hr">
-    <br>
 
-    <!--Comments-->
-    <!-- Slideshow container -->
-    <div class="slideshow-container">
-      <div class="slides">
-        <img
-          src="a1e5efe6e9331a908a0dea39eead53f1.jpg"
-          alt="Profile image"
-          class="center-image">
-      </div>
-      <div class="slides">
-        <img
-          src="b119a175e1511e2186dfaba4f44a6252.jpg"
-          alt="Profile image"
-          class="center-image">
-      </div>
-      <!-- Next and previous buttons -->
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      .sidebar nav ul li {
+        margin-bottom: 5px;
+      }
+
+      .sidebar nav ul li a {
+        font-size: 14px;
+      }
+
+      .contact-us {
+        padding: 10px;
+      }
+
+      .contact-us p {
+        margin: 10px 0;
+      }
+    }
+
+    .prev,
+    .next {
+      display: none;
+    }
+
+    .contact-us {
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+      background-color: lightgoldenrodyellow;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-us img {
+      width: 30px;
+      vertical-align: middle;
+    }
+
+    .contact-us p {
+      margin: 5px 0;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 150px;
+      height: 10vh;
+      background-color: lightgoldenrodyellow;
+      color: whitesmoke;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .sidebar nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .sidebar nav ul li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar nav ul li a {
+      text-decoration: none;
+      color: slategray;
+    }
+
+    .sidebar nav a:hover {
+      background-color: greenyellow;
+      padding: 10px;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+
+<body style="background: url('your-background-image.jpg') no-repeat center center fixed; background-size: cover;">
+  <div class="header-background">
+    <h1 class="text-background" style="color: goldenrod; text-align: center">Your Urban Home</h1>
+    <div class="navbar">
+      <nav>
+        <ul>
+          <li>
+            <a href="Your_Urban_Home_Products.html">Shop Our Products</a>
+          </li>
+          <li>
+            <a href="Your_Urban_Home_Contact.html">Contact Us</a>
+          </li>
+          <li>
+            <a href="About_Your_Urban_Home.html">About Us</a>
+          </li>
+        </ul>
+      </nav>
     </div>
+  </div>
+  <hr class="styled-hr">
+  <p style="color: slategray; text-align: center; margin-inline: 300px">
+    <span style="font-size: larger; font-weight: bold">We Serve</span> you
+    with the best
+    <b><i>"Home Fragrances, Toiletries, Household Cleaning Essentials"</i></b>
+    and many more.
+  </p>
+  <!--<p style="color:slategray; text-align:center; margin-inline:300px;">We <big><b>Serve</b></big> you with the best <b><i>"Home Fragrances, Toiletries, Household Cleaning Essentials"</i></b> and many more.</p>-->
+  <hr class="styled-hr">
+  <br>
 
-    <header>
-      <!--link-->
-      <div class="sidebar">
-        <nav>
-          <ul>
-            <li>
-              <a href="Your_Urban_Home_Products.html">Shop Our Products</a>
-            </li>
-            <li><a href="Your_Urban_Home_Contact.html">Contact Us</a></li>
-            <li><a href="About_Your_Urban_Home.html">About Us</a></li>
-          </ul>
-        </nav>
+  <!-- Slideshow container -->
+  <div class="slideshow-container">
+    <div class="slides">
+      <img src="a1e5efe6e9331a908a0dea39eead53f1.jpg" alt="Profile image" class="center-image">
+    </div>
+    <div class="slides">
+      <img src="b119a175e1511e2186dfaba4f44a6252.jpg" alt="Profile image" class="center-image">
+    </div>
+  </div>
 
-        <!--<img width="450" height="350"src="a1e5efe6e9331a908a0dea39eead53f1.jpg"alt="Profile image"/>-->
-      </div>
+  <!-- Contact Us Section -->
+  <div class="contact-us">
+    <h2>Contact Us</h2>
+    <p>
+      <img src="https://th.bing.com/th/id/OIP.oXKWfypMEAC8DMHWoHgo_wHaEK?w=272&h=180&c=7&r=0&o=5&pid=1.7"
+        alt="Instagram Logo">
+      Your_UrbanHome_
+    </p>
+    <p>
+      <img src="https://img.icons8.com/ios-filled/50/000000/address.png" alt="Address Icon"
+        style="width: 20px; vertical-align: middle;">
+      <strong>Address:</strong> A.M Nyame Avenue, Takoradi-Ghana
+    </p>
+    <p><strong>Mobile:</strong> (+233) 598323235</p>
+  </div>
 
-      <!-- Contact Us Section -->
-      <div class="contact-us">
-        <h2>Contact Us</h2>
-        <p>
-          <img
-            src="https://th.bing.com/th/id/OIP.oXKWfypMEAC8DMHWoHgo_wHaEK?w=272&h=180&c=7&r=0&o=5&pid=1.7"
-            alt="Instagram Logo">
-          Your_UrbanHome_
-        </p>
-        <p><strong>Address:</strong> A.M Nyame Avenue, Takoradi-Ghana</p>
-        <p><strong>Mobile:</strong> (+233) 598323235</p>
-      </div>
-    </header>
+  <!-- Footer Section -->
+  <footer class="footer-background">
+    <div class="footer-content">
+      <p>&copy; 2023 Your Urban Home. All rights reserved.</p>
+    </div>
+  </footer>
 
-    <script>
-      let slideIndex = 0;
-      showSlides();
-      function showSlides() {
-        let i;
-        let slides = document.getElementsByClassName("slides");
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-          slideIndex = 1;
-        }
-        slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 15000);
+  <script>
+    let slideIndex = 0;
+    showSlides(slideIndex);
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slides");
+      if (n >= slides.length) {
+        slideIndex = 0;
       }
-
-      function plusSlides(n) {
-        showSlides((slideIndex += n));
+      if (n < 0) {
+        slideIndex = slides.length - 1;
       }
-    </script>
-  </body>
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex].style.display = "block";
+    }
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Swipe functionality
+    let startX;
+    let endX;
+
+    const slideshowContainer = document.querySelector(".slideshow-container");
+
+    slideshowContainer.addEventListener("touchstart", function (e) {
+      startX = e.touches[0].clientX;
+    });
+
+    slideshowContainer.addEventListener("touchend", function (e) {
+      endX = e.changedTouches[0].clientX;
+      handleSwipe();
+    });
+
+    slideshowContainer.addEventListener("mousedown", function (e) {
+      startX = e.clientX;
+    });
+
+    slideshowContainer.addEventListener("mouseup", function (e) {
+      endX = e.clientX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      if (startX > endX) {
+        plusSlides(1);
+      } else {
+        plusSlides(-1);
+      }
+    }
+
+    // Initialize slideshows
+    showSlides(slideIndex);
+  </script>
+</body>
+
 </html>

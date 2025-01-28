@@ -1,0 +1,102 @@
+.footer-background {
+    background-image: url('horizontal-seamless-background-lilac-flowers-vector-40769582.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    color: transparent;
+    z-index: 1;
+}
+
+.footer-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Adjust transparency */
+    z-index: 1;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+    color: goldenrod;
+    font-weight: bold;
+}
+
+.header-background {
+    background-image: url('lilac-background-234esckqbatcnhs2.jpg');
+    background-size: cover;
+    /* Revert back to cover */
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    color: goldenrod;
+}
+
+@media (max-width: 600px) {
+    .header-background {
+        background-size: cover;
+        /* Keep cover for mobile devices */
+    }
+}
+
+.header-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Remove the background-color property to eliminate transparency */
+    z-index: 1;
+}
+
+.header-background h1 {
+    position: relative;
+    z-index: 2;
+    font-weight: bold;
+}
+
+.navbar {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.navbar nav ul {
+    display: inline-block;
+    padding: 0;
+    list-style: none;
+    background: linear-gradient(45deg, #f3ec78, #af4261);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #af4261;
+    border-radius: 5px;
+}
