@@ -84,8 +84,7 @@
       }
 
       .header-background {
-        background: url('lilac-background-234esckqbatcnhs2.jpg') no-repeat center center;
-        background-size: cover;
+        background: none;
         min-height: 200px;
         /* Ensure the header has a minimum height */
       }
@@ -148,15 +147,15 @@
     }
 
     .header-background {
-      background: url('lilac-background-234esckqbatcnhs2.jpg') no-repeat center center;
-      background-size: cover;
-      min-height: 200px;
+      background: none;
+      min-height: 1px;
       /* Ensure the header has a minimum height */
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       padding: 20px;
+      position: relative;
     }
 
     .header-background h1 {
@@ -204,12 +203,39 @@
     .navbar nav ul li a:hover {
       color: lightgoldenrodyellow;
     }
+
+    .top-left-small-image {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 175px;
+      height: fit-content;
+      border: none;
+      /* Remove the border */
+      border-radius: 10px;
+      z-index: 1;
+      /* Ensure the image is above other elements */
+    }
+
+    .top-right-small-image {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 260px;
+      height: fit-content;
+      border: none;
+      border-radius: 10px;
+      z-index: 1;
+      /* Ensure the image is above other elements */
+    }
   </style>
 </head>
 
 <body
   style="background: url('path/to/your-background-image.jpg') no-repeat center center fixed; background-size: cover;">
   <div class="header-background">
+    <img src="lilac-2250145_640.jpg" alt="Top Left Small Image" class="top-left-small-image">
+    <img src="lilac-flowers-on-a-white-background-photo.jpg" alt="Top Right Small Image" class="top-right-small-image">
     <h1 class="text-background">Your Urban Home</h1>
     <div class="navbar">
       <nav>
