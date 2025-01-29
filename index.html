@@ -84,7 +84,7 @@
       }
 
       .header-background {
-        background: url('path/to/your-background-image.jpg') no-repeat center center;
+        background: url('lilac-background-234esckqbatcnhs2.jpg') no-repeat center center;
         background-size: cover;
         min-height: 200px;
         /* Ensure the header has a minimum height */
@@ -152,6 +152,57 @@
       background-size: cover;
       min-height: 200px;
       /* Ensure the header has a minimum height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .header-background h1 {
+      font-family: 'Arial', sans-serif;
+      font-size: 3em;
+      color: goldenrod;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .header-background h1:hover {
+      color: lightgoldenrodyellow;
+      transition: color 0.5s ease-in-out;
+    }
+
+    .navbar nav ul {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .navbar nav ul li {
+      list-style: none;
+      margin: 0 15px;
+    }
+
+    .navbar nav ul li a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 1.2em;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .navbar nav ul li a:hover {
+      color: lightgoldenrodyellow;
     }
   </style>
 </head>
@@ -159,7 +210,7 @@
 <body
   style="background: url('path/to/your-background-image.jpg') no-repeat center center fixed; background-size: cover;">
   <div class="header-background">
-    <h1 class="text-background" style="color: goldenrod; text-align: center">Your Urban Home</h1>
+    <h1 class="text-background">Your Urban Home</h1>
     <div class="navbar">
       <nav>
         <ul>
@@ -214,7 +265,7 @@
   <!-- Footer Section -->
   <footer class="footer-background">
     <div class="footer-content">
-      <p>&copy; 2023 Your Urban Home. All rights reserved.</p>
+      <p>&copy; Your Urban Home 2023.</p>
     </div>
   </footer>
 
@@ -275,6 +326,12 @@
 
     // Initialize slideshows
     showSlides(slideIndex);
+
+    // Add animation to the header text
+    document.addEventListener("DOMContentLoaded", function () {
+      const headerText = document.querySelector(".header-background h1");
+      headerText.classList.add("fade-in");
+    });
   </script>
 </body>
 
