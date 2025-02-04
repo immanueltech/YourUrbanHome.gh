@@ -36,9 +36,23 @@
       width: 100%;
       max-width: 450px;
       height: auto;
-      border: 5px solid goldenrod;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      border-radius: 15px;
+      border: none;
+      /* Remove the border */
+      box-shadow: none;
+      /* Remove the box shadow */
+      border-radius: 0;
+      /* Remove the border radius */
+      mix-blend-mode: multiply;
+      /* Blend with the background */
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+      /* Add transition effects */
+    }
+
+    .center-image:hover {
+      transform: scale(1.1);
+      /* Scale up on hover */
+      opacity: 1;
+      /* Increase opacity on hover */
     }
 
     @media (max-width: 600px) {
@@ -168,6 +182,16 @@
       animation: fadeIn 2s ease-in-out;
     }
 
+    .header-background h1 span.small {
+      font-size: 0.8em;
+      /* Mid small size */
+    }
+
+    .header-background h1 span.big {
+      font-size: 1.2em;
+      /* Big size */
+    }
+
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -206,39 +230,59 @@
       color: lightgoldenrodyellow;
     }
 
-    .top-left-small-image {
+    .top-left-small-image,
+    .top-right-small-image {
       position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 175px;
+      top: 6px;
+      width: 150px;
       height: fit-content;
       border: none;
-      /* Remove the border */
       border-radius: 10px;
       z-index: 1;
-      /* Ensure the image is above other elements */
+      opacity: 0.8;
+      mix-blend-mode: multiply;
+      background: transparent;
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+      /* Add transition effects */
+    }
+
+    .top-left-small-image {
+      left: 10px;
     }
 
     .top-right-small-image {
-      position: absolute;
-      top: 10px;
       right: 10px;
-      width: 260px;
-      height: fit-content;
-      border: none;
-      border-radius: 10px;
-      z-index: 1;
-      /* Ensure the image is above other elements */
+    }
+
+    .top-left-small-image:hover,
+    .top-right-small-image:hover {
+      transform: scale(1.1);
+      /* Scale up on hover */
+      opacity: 1;
+      /* Increase opacity on hover */
+    }
+
+    body {
+      background: url('path/to/your-background-image.jpg') no-repeat center center fixed;
+      background-size: cover;
+      border-radius: 15px;
+      /* Add border-radius */
+      background-color: rgba(255, 255, 255, 0.5);
+      /* Add moist effect */
+      backdrop-filter: blur(5px);
+      /* Add blur effect for a more moist appearance */
     }
   </style>
 </head>
 
-<body
-  style="background: url('path/to/your-background-image.jpg') no-repeat center center fixed; background-size: cover;">
+<body>
   <div class="header-background">
-    <img src="lilac-2250145_640.jpg" alt="Top Left Small Image" class="top-left-small-image">
-    <img src="lilac-flowers-on-a-white-background-photo.jpg" alt="Top Right Small Image" class="top-right-small-image">
-    <h1 class="text-background">Your Urban Home</h1>
+    <img src="12e272cefe5d0ca0d0cead7f925f1b46cc.jpg" alt="Top Left Small Image" class="top-left-small-image">
+    <img src="1 Purple-lilac-flowers-bouquet-vase-room_iphone_1080x1920.jpg" alt="Top Right Small Image"
+      class="top-right-small-image">
+    <h1 class="text-background">
+      <span class="small">Your</span> <span class="big">Urban</span> <span class="small">Home</span>
+    </h1>
     <div class="navbar">
       <nav>
         <ul>
