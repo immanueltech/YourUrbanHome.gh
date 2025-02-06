@@ -28,10 +28,10 @@ app.post('/send-comment', (req, res) => {
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.error('Error sending email:', error); // Log error
-      return res.status(500).send(error.toString());
+      return res.status(500).send({ error: error.toString() });
     }
     console.log('Email sent:', info.response); // Log success
-    res.status(200).send('Comment sent successfully');
+    res.status(200).send({ message: 'Comment sent successfully' });
   });
 });
 

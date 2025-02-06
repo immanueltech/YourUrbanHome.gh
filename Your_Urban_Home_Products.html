@@ -370,16 +370,22 @@
     }
 
     async function sendEmail(commentText) {
-      const response = await fetch('/send-comment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ comment: commentText })
-      });
+      try {
+        const response = await fetch('/send-comment', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ comment: commentText })
+        });
 
-      if (!response.ok) {
-        throw new Error('Failed to send comment');
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Failed to send comment');
+        }
+      } catch (error) {
+        console.error('Error in sendEmail function:', error); // Log error
+        throw error;
       }
     }
 
