@@ -14,7 +14,7 @@ app.post('/send-comment', (req, res) => {
     service: 'gmail',
     auth: {
       user: 'yoururbanhome23@gmail.com',
-      pass: 'chapelhill23' // Use the generated app-specific password
+      pass: 'chapelhill23' // Use the provided email password
     }
   });
 
