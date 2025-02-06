@@ -321,6 +321,18 @@
       </p>
     </section>
 
+    <!-- Mobile Money Payment Section -->
+    <section class="payment">
+      <h3>Mobile Money Payment</h3>
+      <form id="payment-form">
+        <label for="mobile-number">Mobile Number:</label>
+        <input type="text" id="mobile-number" name="mobile-number" required><br>
+        <label for="amount">Amount (GH₵):</label>
+        <input type="text" id="amount" name="amount" readonly><br>
+        <button type="button" onclick="processPayment()">Pay Now</button>
+      </form>
+    </section>
+
     <!-- Comment Section -->
     <section class="comments">
       <h3>Comments</h3>
@@ -340,13 +352,25 @@
     function addToCart(productName, productPrice) {
       const cartItems = document.getElementById("cart-items");
       const listItem = document.createElement("li");
-      listItem.textContent = `${productName} - GH₵${productPrice}`;
+      listItem.innerHTML = `${productName} - GH₵${productPrice} <button onclick="removeFromCart(this, ${productPrice})">Remove</button>`;
       cartItems.appendChild(listItem);
 
       totalItems++;
       totalPrice += productPrice;
       document.getElementById("cart-total-items").textContent = `Total Items: ${totalItems}`;
       document.getElementById("cart-total-price").textContent = `Total Price: GH₵${totalPrice.toFixed(2)}`;
+      document.getElementById("amount").value = totalPrice.toFixed(2);
+    }
+
+    function removeFromCart(button, productPrice) {
+      const listItem = button.parentElement;
+      listItem.remove();
+
+      totalItems--;
+      totalPrice -= productPrice;
+      document.getElementById("cart-total-items").textContent = `Total Items: ${totalItems}`;
+      document.getElementById("cart-total-price").textContent = `Total Price: GH₵${totalPrice.toFixed(2)}`;
+      document.getElementById("amount").value = totalPrice.toFixed(2);
     }
 
     async function addComment() {
@@ -397,6 +421,37 @@
         replyItem.textContent = replyText;
         replyList.appendChild(replyItem);
         button.parentElement.appendChild(replyList);
+      }
+    }
+
+    async function processPayment() {
+      const mobileNumber = document.getElementById("mobile-number").value;
+      const amount = document.getElementById("amount").value;
+
+      if (mobileNumber.trim() === "" || amount.trim() === "") {
+        alert("Please enter a valid mobile number and amount.");
+        return;
+      }
+
+      // Simulate a mobile money payment request
+      try {
+        const response = await fetch('http://localhost:3000/process-payment', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ mobileNumber, amount })
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Failed to process payment');
+        }
+
+        alert(`Payment of GH₵${amount} from mobile number ${mobileNumber} processed successfully.`);
+      } catch (error) {
+        console.error('Error in processPayment function:', error); // Log error
+        alert('Failed to process payment');
       }
     }
   </script>
