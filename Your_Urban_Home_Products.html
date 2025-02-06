@@ -371,7 +371,7 @@
 
     async function sendEmail(commentText) {
       try {
-        const response = await fetch('/send-comment', {
+        const response = await fetch('https://immanueltech.github.io/YourUrbanHome.gh/index.html', { // Ensure the correct URL
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
