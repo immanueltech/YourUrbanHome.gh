@@ -349,7 +349,7 @@
       document.getElementById("cart-total-price").textContent = `Total Price: GH₵${totalPrice.toFixed(2)}`;
     }
 
-    function addComment() {
+    async function addComment() {
       const commentText = document.getElementById("comment-text").value;
       if (commentText.trim() !== "") {
         const commentList = document.getElementById("comment-list");
@@ -357,6 +357,29 @@
         listItem.innerHTML = `${commentText} <button onclick="replyComment(this)">Reply</button>`;
         commentList.appendChild(listItem);
         document.getElementById("comment-form").reset();
+        
+        // Send comment to email
+        try {
+          await sendEmail(commentText);
+          alert('Comment sent successfully');
+        } catch (error) {
+          alert('Failed to send comment');
+          console.error('Error sending comment:', error); // Log error
+        }
+      }
+    }
+
+    async function sendEmail(commentText) {
+      const response = await fetch('/send-comment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ comment: commentText })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send comment');
       }
     }
 
@@ -386,6 +409,7 @@
       <strong>Address:</strong> A.M Nyame Avenue, Takoradi-Ghana
     </p>
     <p><strong>Mobile:</strong> (+233) 598323235</p>
+    <p><strong>Email:</strong> yoururbanhome23@gmail.com</p>
   </div>
 
   <!-- Footer Section -->
