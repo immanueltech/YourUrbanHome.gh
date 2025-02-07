@@ -206,7 +206,7 @@
 </head>
 
 <body style="background-color: seashell">
-  <h1 style="color: goldenrod; text-align: center">Your Urban Home</h1>
+  <h1 style="color: goldenrod; text-align: center; font-family: 'Arial', sans-serif; font-size: 3em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Your Urban Home</h1>
   <br>
 
   <hr class="styled-hr">
@@ -219,8 +219,11 @@
   <a href="index.html">Home</a>
 
   <header>
-    <!-- Add catalog section here -->
-    <h2 style="color: goldenrod; text-align: center">Shop Our Products</h2>
+    <!-- Add insignia here -->
+    <div style="text-align: center; margin: 20px 0;">
+      <img src="istockphoto-1128229893-612x612.jpg" style="width: 150px; height: auto; border: 2px solid goldenrod; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+      <!--<h2 style="color: goldenrod; margin: 10px 0;">Shop Our Products</h2> -->
+    </div>
     <p style="text-align: center; color: green">
       <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone Icon" style="width: 20px; vertical-align: middle;"> Call to Order: <a href="tel:+233598323235" style="color: green">(+233) 598323235</a>
     </p>
@@ -306,7 +309,7 @@
 
     <!-- Cart Section -->
     <section class="cart">
-      <h3>Your Cart</h3>
+      <h3>Your Cart <img src="istockphoto-1128229893-612x612.jpg" style="width: 30px; height: auto; vertical-align: middle; border: 1px solid goldenrod; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"></h3>
       <ul id="cart-items">
         <!-- Cart items will be dynamically added here -->
       </ul>
@@ -322,13 +325,19 @@
     </section>
 
     <!-- Mobile Money Payment Section -->
+     <br>
     <section class="payment">
-      <h3>Mobile Money Payment</h3>
+      <h3 style="color: goldenrod; text-align: left">
+        Mobile Money Payment
+        <img src="mtn-icon-512x512-jvl0inah.png"  style="width: 30px; height: auto; vertical-align: middle;">
+      </h3>
       <form id="payment-form">
         <label for="mobile-number">Mobile Number:</label>
         <input type="text" id="mobile-number" name="mobile-number" required><br>
+       <br>
         <label for="amount">Amount (GH₵):</label>
         <input type="text" id="amount" name="amount" readonly><br>
+        <br>
         <button type="button" onclick="processPayment()">Pay Now</button>
       </form>
     </section>
@@ -426,6 +435,7 @@
 
     async function processPayment() {
       const mobileNumber = document.getElementById("mobile-number").value;
+      
       const amount = document.getElementById("amount").value;
 
       if (mobileNumber.trim() === "" || amount.trim() === "") {
