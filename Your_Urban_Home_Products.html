@@ -37,7 +37,7 @@
       text-align: center;
       margin-top: 20px;
       padding: 20px;
-      background-color: lightgoldenrodyellow;
+      background-color: papayawhip ; /* Changed background color */
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
@@ -209,6 +209,12 @@
   <h1 style="color: goldenrod; text-align: center; font-family: 'Arial', sans-serif; font-size: 3em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Your Urban Home</h1>
   <br>
 
+  <hr class="styled-hr">
+  <div style="text-align: left; margin: 20px;">
+    <input type="text" id="search-bar" placeholder="Search products..." style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+    <button onclick="searchProducts()" style="padding: 10px 20px; border: 2px solid brown; border-radius: 5px; background-color: goldenrod; color: white;">Search</button>
+    <button onclick="resetSearch()" style="padding: 10px 20px; border: 2px solid brown; border-radius: 5px; background-color: brown; color: white;">Back</button>
+  </div>
   <hr class="styled-hr">
   <p style="color: slategray; text-align: center; margin-inline:50px">
     <span style="font-size: larger; font-weight: bold">Experience quality</span> <i>without</i> the <span
@@ -404,7 +410,7 @@
 
     async function sendEmail(commentText) {
       try {
-        const response = await fetch('http://localhost:3000/send-comment', { // Ensure the correct URL
+        const response = await fetch('send_comment.php', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -464,6 +470,28 @@
         alert('Failed to process payment');
       }
     }
+
+    function searchProducts() {
+      const searchTerm = document.getElementById("search-bar").value.toLowerCase();
+      const products = document.querySelectorAll(".product");
+
+      products.forEach(product => {
+        const productName = product.querySelector("h4").textContent.toLowerCase();
+        if (productName.includes(searchTerm)) {
+          product.style.display = "block";
+        } else {
+          product.style.display = "none";
+        }
+      });
+    }
+
+    function resetSearch() {
+      document.getElementById("search-bar").value = "";
+      const products = document.querySelectorAll(".product");
+      products.forEach(product => {
+        product.style.display = "block";
+      });
+    }
   </script>
 
   <!-- Contact Us Section -->
@@ -480,15 +508,6 @@
       <strong>Address:</strong> A.M Nyame Avenue, Takoradi-Ghana
     </p>
     <p>
-      <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone Icon" style="width: 20px; vertical-align: middle;">
-      <strong>Mobile:</strong> (+233) 598323235
-    </p>
-    <p>
-      <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email Icon" style="width: 20px; vertical-align: middle;">
-      <strong>Email:</strong> yoururbanhome23@gmail.com
-    </p>
-  </div>
-
   <!-- Footer Section -->
   <footer class="footer-background">
     <div class="footer-content">

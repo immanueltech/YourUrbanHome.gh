@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Contact Your Urban Home!">
+    <meta name="keywords" content="Contact Us, Your Urban Home, Home">
+    <meta name="author" content="Immanueltech">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourUrbanHomeContactUs.gh</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .styled-hr {
+          border: 0;
+          height: 2px;
+          background: goldenrod;
+          margin: 20px 0;}
+         
+          a {
+            text-decoration: none;
+            color: brown;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid brown;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            color: white;
+            background-color: goldenrod;
+        }
+
+        @media (max-width: 600px) {
+            .center-image {
+                width: 100%;
+                max-width: 100%;
+                /* Ensure full width on smaller devices */
+                height: auto;
+                /* Maintain aspect ratio */
+            }
+
+            .styled-hr {
+                margin: 10px 0;
+            }
+
+            p {
+                margin-inline: 10px;
+                font-size: 14px;
+                /* Adjust font size for better readability */
+                text-align: center;
+            }
+        }
+
+        .header-background {
+            background: none;
+            min-height: 200px;
+            /* Ensure the header has a minimum height */
+        }
+
+        .header-text {
+            text-align: center;
+            padding: 50px;
+            /* Add padding to the header text */
+        }
+        .contact-us {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: papayawhip; /* Changed background color */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-us img {
+            width: 30px;
+            vertical-align: middle;
+        }
+
+        .contact-us p {
+            margin: 5px 0;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h2 {
+            color: goldenrod;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: brown;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: goldenrod;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: brown;
+        }
+        
+    </style>
+    <title>YourUrbanHomeContactUs.gh</title>
+    </head> 
+    <body style="background-color: papayawhip">
+
+    <h1 style="color: goldenrod; text-align: center; font-family: 'Arial', sans-serif; font-size: 3em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Your Urban Home</h1>
+    <br>
+
+    <header>
+        <div class="header-text" style="padding: 3px;">
+            <hr class="styled-hr">
+            <h3 style="color: slategray;"><i>"Transform your space, transform your life. Get in touch with us today!".</i></h3>
+        <hr class="styled-hr">
+    </div>
+
+    <br>
+    </header>
+    <a href="index.html" style="margin-top: -10px; display: inline-block;">Home</a>
+    <main>
+            <div style="text-align: center; margin: 20px 0;">
+            <img src="contactus-banner.png" alt="Contact Us Insignia" style="width: 250px; height: auto;">
+        </div>
+        <p style="color: slategray; text-align: center; margin-inline:50px"></p>
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form action="submit_form.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        <br>
+    </main>
+    <div class="contact-us">
+        <h2>Contact Us</h2>
+        <p>
+            <img src="https://th.bing.com/th/id/OIP.oXKWfypMEAC8DMHWoHgo_wHaEK?w=272&h=180&c=7&r=0&o=5&pid=1.7"
+                alt="Instagram Logo">
+            Your_UrbanHome_
+        </p>
+        <p>
+            <img src="https://img.icons8.com/ios-filled/50/000000/address.png" alt="Address Icon"
+                style="width: 20px; vertical-align: middle;">
+            <strong>Address:</strong> A.M Nyame Avenue, Takoradi-Ghana
+        </p>
+        <p>
+            <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone Icon"
+                style="width: 20px; vertical-align: middle;">
+            <strong>Mobile:</strong> (+233) 598323235
+        </p>
+        <p>
+            <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email Icon"
+                style="width: 20px; vertical-align: middle;">
+            <strong>Email:</strong> yoururbanhome23@gmail.com
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector(".contact-form form");
+            form.addEventListener("submit", async function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+
+                try {
+                    const response = await fetch('submit_form.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.error || 'Failed to send message');
+                    }
+
+                    alert('Message sent successfully!');
+                    form.reset();
+                } catch (error) {
+                    alert('Failed to send message');
+                    console.error('Error sending message:', error);
+                }
+            });
+        });
+    </script>
+
+<!-- Footer Section -->
+<footer class="footer-background">
+    <div class="footer-content">
+        <p>&copy; Your Urban Home 2023.</p>
+    </div>
+</footer>
+</body>
+
+
+
+
+</html>
+
