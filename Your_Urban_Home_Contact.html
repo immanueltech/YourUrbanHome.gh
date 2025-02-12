@@ -189,7 +189,7 @@
         <p style="color: slategray; text-align: center; margin-inline:50px"></p>
         <div class="contact-form">
             <h2>Contact Us</h2>
-            <form action="submit_form.php" method="post">
+            <form id="contactForm" action="submit_form.php" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -203,34 +203,33 @@
             </form>
         </div>
         <br>
+        <div class="contact-us">
+            <h2>Contact Us</h2>
+            <p>
+                <img src="https://th.bing.com/th/id/OIP.oXKWfypMEAC8DMHWoHgo_wHaEK?w=272&h=180&c=7&r=0&o=5&pid=1.7"
+                    alt="Instagram Logo">
+                Your_UrbanHome_
+            </p>
+            <p>
+                <img src="https://img.icons8.com/ios-filled/50/000000/address.png" alt="Address Icon"
+                    style="width: 20px; vertical-align: middle;">
+                <strong>Address:</strong> A.M Nyame Avenue, Takoradi-Ghana
+            </p>
+            <p>
+                <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone Icon"
+                    style="width: 20px; vertical-align: middle;">
+                <strong>Mobile:</strong> (+233) 598323235
+            </p>
+            <p>
+                <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email Icon"
+                    style="width: 20px; vertical-align: middle;">
+                <strong>Email:</strong> yoururbanhome23@gmail.com
+            </p>
+        </div>
     </main>
-    <div class="contact-us">
-        <h2>Contact Us</h2>
-        <p>
-            <img src="https://th.bing.com/th/id/OIP.oXKWfypMEAC8DMHWoHgo_wHaEK?w=272&h=180&c=7&r=0&o=5&pid=1.7"
-                alt="Instagram Logo">
-            Your_UrbanHome_
-        </p>
-        <p>
-            <img src="https://img.icons8.com/ios-filled/50/000000/address.png" alt="Address Icon"
-                style="width: 20px; vertical-align: middle;">
-            <strong>Address:</strong> A.M Nyame Avenue, Takoradi-Ghana
-        </p>
-        <p>
-            <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone Icon"
-                style="width: 20px; vertical-align: middle;">
-            <strong>Mobile:</strong> (+233) 598323235
-        </p>
-        <p>
-            <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email Icon"
-                style="width: 20px; vertical-align: middle;">
-            <strong>Email:</strong> yoururbanhome23@gmail.com
-        </p>
-    </div>
-
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const form = document.querySelector(".contact-form form");
+            const form = document.querySelector("#contactForm");
             form.addEventListener("submit", async function(event) {
                 event.preventDefault();
 
@@ -246,9 +245,11 @@
                         body: JSON.stringify(data)
                     });
 
+                    const responseData = await response.json();
+                    console.log('Response:', responseData);
+
                     if (!response.ok) {
-                        const errorData = await response.json();
-                        throw new Error(errorData.error || 'Failed to send message');
+                        throw new Error(responseData.error || 'Failed to send message');
                     }
 
                     alert('Message sent successfully!');
