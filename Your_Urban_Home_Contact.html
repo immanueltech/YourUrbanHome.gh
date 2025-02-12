@@ -167,7 +167,6 @@
     <title>YourUrbanHomeContactUs.gh</title>
     </head> 
     <body style="background-color: papayawhip">
-
     <h1 style="color: goldenrod; text-align: center; font-family: 'Arial', sans-serif; font-size: 3em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Your Urban Home</h1>
     <br>
 
@@ -186,18 +185,22 @@
             <div style="text-align: center; margin: 20px 0;">
             <img src="contactus-banner.png" alt="Contact Us Insignia" style="width: 250px; height: auto;">
         </div>
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
         <p style="color: slategray; text-align: center; margin-inline:50px"></p>
-        <div class="contact-form">
-            <h2>Contact Us</h2>
-            <form id="contactForm" action="submit_form.php" method="POST">
+    
+            <h2>Message Us</h2>
+
+           
+            <!--form id="contactForm" action="submit_form.php" method="POST"-->
+            <input type="hidden" name="access_key" value="2c3d5cec-a628-4162-a11f-7ee14d3f7029">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
 
                 <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+                <textarea name="message" placeholder="Your Message" class="contact-inputs" rows="5" required></textarea>
 
                 <button type="submit">Send Message</button>
             </form>

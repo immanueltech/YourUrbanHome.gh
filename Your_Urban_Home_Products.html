@@ -406,13 +406,15 @@
     <!-- Comment Section -->
     <section class="comments">
       <h3>Comments</h3>
-      <form id="comment-form">
+      <form action="https://api.web3forms.com/submit" method="POST" class="comment-form">
+        <input type="hidden" name="access_key" value="2c3d5cec-a628-4162-a11f-7ee14d3f7029">
         <textarea id="comment-text" rows="4" cols="50" placeholder="Leave your comment here..."></textarea><br>
         <button type="button" onclick="addComment()">Submit</button>
       </form>
       <ul id="comment-list">
         <!-- Comments will be dynamically added here -->
       </ul>
+      <button id="read-all-comments" onclick="toggleComments()" style="display: none;">Read all comments</button>
     </section>
   </main>
   <script>
@@ -452,6 +454,9 @@
         commentList.appendChild(listItem);
         document.getElementById("comment-form").reset();
         
+        // Save comment to local storage
+        saveComment(commentText);
+        
         // Send comment to email
         try {
           await sendEmail(commentText);
@@ -460,8 +465,53 @@
           alert('Failed to send comment');
           console.error('Error sending comment:', error); // Log error
         }
+        checkCommentsLength();
       }
     }
+
+    function saveComment(commentText) {
+      let comments = JSON.parse(localStorage.getItem('comments')) || [];
+      comments.push(commentText);
+      localStorage.setItem('comments', JSON.stringify(comments));
+    }
+
+    function loadComments() {
+      let comments = JSON.parse(localStorage.getItem('comments')) || [];
+      const commentList = document.getElementById("comment-list");
+      comments.forEach(commentText => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `${commentText} <button onclick="replyComment(this)">Reply</button>`;
+        commentList.appendChild(listItem);
+      });
+      checkCommentsLength();
+    }
+
+    function checkCommentsLength() {
+      const commentList = document.getElementById("comment-list");
+      const comments = commentList.querySelectorAll("li");
+      if (comments.length > 3) {
+        for (let i = 3; i < comments.length; i++) {
+          comments[i].style.display = "none";
+        }
+        document.getElementById("read-all-comments").style.display = "block";
+      } else {
+        // Always display the button for testing
+        document.getElementById("read-all-comments").style.display = "block";
+      }
+    }
+
+    function toggleComments() {
+      const commentList = document.getElementById("comment-list");
+      const comments = commentList.querySelectorAll("li");
+      comments.forEach(comment => {
+        comment.style.display = "block";
+      });
+      document.getElementById("read-all-comments").style.display = "none";
+    }
+
+    window.onload = function() {
+      loadComments();
+    };
 
     async function sendEmail(commentText) {
       try {
