@@ -88,6 +88,12 @@
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-form:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
 
         .contact-form h2 {
@@ -262,6 +268,14 @@
                     console.error('Error sending message:', error);
                 }
             });
+
+            // JavaScript to dynamically style the "Message Us" box
+            const messageBox = document.querySelector('.contact-form');
+            messageBox.style.border = '2px solid goldenrod';
+            messageBox.style.padding = '20px';
+            messageBox.style.backgroundColor = 'white';
+            messageBox.style.borderRadius = '10px';
+            messageBox.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
         });
     </script>
 

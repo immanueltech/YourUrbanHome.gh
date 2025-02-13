@@ -103,6 +103,22 @@
       margin-bottom: 10px;
     }
 
+    .cart button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      background-color: brown;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .cart button:hover {
+      background-color: goldenrod;
+      color: white;
+    }
+
     @media (max-width: 600px) {
       .product {
         width: 90%;
@@ -200,7 +216,7 @@
     }
 
     #comment-list li ul li {
-      background-color: #e9e9e9;
+      background-color: #dbdada;
     }
 
     .search-container {
@@ -257,7 +273,125 @@
         margin-bottom: 0;
       }
     }
+
+    .comment-item {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: #f9f9f9;
+    }
+
+    .comment-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+      font-size: 1.1em;
+    }
+
+    .comment-item p {
+      margin: 0;
+      color: #555;
+    }
+
+    .comment-item button {
+      margin-top: 5px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      background-color: goldenrod;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .comment-item button:hover {
+      background-color: brown;
+      color: white;
+    }
+
+    .read-all-comments {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      border: 2px solid brown;
+      border-radius: 5px;
+      background-color: goldenrod;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    .read-all-comments:hover {
+      background-color: white;
+      color: brown;
+    }
+
+    .payment {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      max-width: 500px; /* Limit the width */
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .payment h3 {
+      color: goldenrod;
+      text-align: left;
+      display: flex;
+      align-items: center;
+    }
+
+    .payment h3 img {
+      margin-left: 10px;
+    }
+
+    .payment form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .payment label {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .payment input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-top: 5px;
+    }
+
+    .payment button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: 2px solid goldenrod;
+      border-radius: 5px;
+      background-color: goldenrod;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .payment button:hover {
+      background-color: white;
+      color: goldenrod;
+    }
   </style>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com">
 </head>
 
 <body style="background-color: seashell">
@@ -391,6 +525,8 @@
       <h3 style="color: goldenrod; text-align: left">
         Mobile Money Payment
         <img src="mtn-icon-512x512-jvl0inah.png"  style="width: 30px; height: auto; vertical-align: middle;">
+        <img src="Telcel-White.png" style="width: 30px; height: auto; vertical-align: middle;">
+        <img src="AirtelTigo-rebrands-as-AT.jpg" style="width: 30px; height: auto; vertical-align: middle;">
       </h3>
       <form id="payment-form">
         <label for="mobile-number">Mobile Number:</label>
@@ -415,11 +551,18 @@
         <!-- Comments will be dynamically added here -->
       </ul>
       <button id="read-all-comments" onclick="toggleComments()" style="display: none;">Read all comments</button>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </section>
   </main>
   <script>
     let totalItems = 0;
     let totalPrice = 0;
+    let userName = 'Anonymous';
+
+    function onSignIn(googleUser) {
+      const profile = googleUser.getBasicProfile();
+      userName = profile.getName() || 'Anonymous';
+    }
 
     function addToCart(productName, productPrice) {
       const cartItems = document.getElementById("cart-items");
@@ -450,16 +593,17 @@
       if (commentText.trim() !== "") {
         const commentList = document.getElementById("comment-list");
         const listItem = document.createElement("li");
-        listItem.innerHTML = `${commentText} <button onclick="replyComment(this)">Reply</button>`;
+        listItem.className = "comment-item";
+        listItem.innerHTML = `<strong>${userName || 'Anonymous'}</strong><p>${commentText}</p><button onclick="replyComment(this)">Reply</button>`;
         commentList.appendChild(listItem);
         document.getElementById("comment-form").reset();
         
         // Save comment to local storage
-        saveComment(commentText);
+        saveComment(commentText, userName || 'Anonymous');
         
-        // Send comment to email
+        // Send comment to backend server
         try {
-          await sendEmail(commentText);
+          await sendCommentToServer(commentText, userName || 'Anonymous');
           alert('Comment sent successfully');
         } catch (error) {
           alert('Failed to send comment');
@@ -469,78 +613,38 @@
       }
     }
 
-    function saveComment(commentText) {
-      let comments = JSON.parse(localStorage.getItem('comments')) || [];
-      comments.push(commentText);
-      localStorage.setItem('comments', JSON.stringify(comments));
-    }
-
-    function loadComments() {
-      let comments = JSON.parse(localStorage.getItem('comments')) || [];
-      const commentList = document.getElementById("comment-list");
-      comments.forEach(commentText => {
-        const listItem = document.createElement("li");
-        listItem.innerHTML = `${commentText} <button onclick="replyComment(this)">Reply</button>`;
-        commentList.appendChild(listItem);
-      });
-      checkCommentsLength();
-    }
-
-    function checkCommentsLength() {
-      const commentList = document.getElementById("comment-list");
-      const comments = commentList.querySelectorAll("li");
-      if (comments.length > 3) {
-        for (let i = 3; i < comments.length; i++) {
-          comments[i].style.display = "none";
-        }
-        document.getElementById("read-all-comments").style.display = "block";
-      } else {
-        // Always display the button for testing
-        document.getElementById("read-all-comments").style.display = "block";
-      }
-    }
-
-    function toggleComments() {
-      const commentList = document.getElementById("comment-list");
-      const comments = commentList.querySelectorAll("li");
-      comments.forEach(comment => {
-        comment.style.display = "block";
-      });
-      document.getElementById("read-all-comments").style.display = "none";
-    }
-
-    window.onload = function() {
-      loadComments();
-    };
-
-    async function sendEmail(commentText) {
-      try {
-        const response = await fetch('send_comment.php', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ comment: commentText })
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Failed to send comment');
-        }
-      } catch (error) {
-        console.error('Error in sendEmail function:', error); // Log error
-        throw error;
-      }
-    }
-
     function replyComment(button) {
       const replyText = prompt("Enter your reply:");
       if (replyText && replyText.trim() !== "") {
         const replyList = document.createElement("ul");
         const replyItem = document.createElement("li");
-        replyItem.textContent = replyText;
+        replyItem.innerHTML = `<strong>${userName}</strong><p>${replyText}</p>`;
         replyList.appendChild(replyItem);
         button.parentElement.appendChild(replyList);
+
+        // Send reply to backend server
+        const commentText = button.parentElement.querySelector('p').textContent;
+        sendReplyToServer(commentText, replyText, userName);
+      }
+    }
+
+    async function sendReplyToServer(commentText, replyText, userName) {
+      try {
+        const response = await fetch('http://localhost:3000/send-reply', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ comment: commentText, reply: replyText, user: userName })
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Failed to send reply');
+        }
+      } catch (error) {
+        console.error('Error in sendReplyToServer function:', error); // Log error
+        throw error;
       }
     }
 
@@ -596,6 +700,72 @@
       products.forEach(product => {
         product.style.display = "block";
       });
+    }
+
+    function saveComment(commentText, userName) {
+      let comments = JSON.parse(localStorage.getItem('comments')) || [];
+      comments.push({ text: commentText, user: userName });
+      localStorage.setItem('comments', JSON.stringify(comments));
+    }
+
+    function loadComments() {
+      let comments = JSON.parse(localStorage.getItem('comments')) || [];
+      const commentList = document.getElementById("comment-list");
+      commentList.innerHTML = ''; // Clear existing comments
+      comments.forEach(comment => {
+        const listItem = document.createElement("li");
+        listItem.className = "comment-item";
+        listItem.innerHTML = `<strong>${comment.user || 'Anonymous'}</strong><p>${comment.text}</p><button onclick="replyComment(this)">Reply</button>`;
+        commentList.appendChild(listItem);
+      });
+      checkCommentsLength();
+    }
+
+    function checkCommentsLength() {
+      const commentList = document.getElementById("comment-list");
+      const comments = commentList.querySelectorAll("li");
+      if (comments.length > 3) {
+        for (let i = 3; i < comments.length; i++) {
+          comments[i].style.display = "none";
+        }
+        document.getElementById("read-all-comments").style.display = "block";
+      } else {
+        // Always display the button for testing
+        document.getElementById("read-all-comments").style.display = "block";
+      }
+    }
+
+    function toggleComments() {
+      const commentList = document.getElementById("comment-list");
+      const comments = commentList.querySelectorAll("li");
+      comments.forEach(comment => {
+        comment.style.display = "block";
+      });
+      document.getElementById("read-all-comments").style.display = "none";
+    }
+
+    window.onload = function() {
+      loadComments();
+    };
+
+    async function sendEmail(commentText, userName) {
+      try {
+        const response = await fetch('send_comment.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ comment: commentText, user: userName })
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Failed to send comment');
+        }
+      } catch (error) {
+        console.error('Error in sendEmail function:', error); // Log error
+        throw error;
+      }
     }
   </script>
 
