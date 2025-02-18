@@ -174,6 +174,11 @@
       #comment-list li ul {
         padding-left: 10px;
       }
+
+      h1 {
+        font-size: 2em; /* Adjust font size for smaller screens */
+        text-align: center; /* Ensure text is centered */
+      }
     }
 
     .comments {
@@ -591,11 +596,6 @@
       totalItems--;
       totalPrice -= productPrice;
       document.getElementById("cart-total-items").textContent = `Total Items: ${totalItems}`;
-      document.getElementById("cart-total-price").textContent = `Total Price: GH₵${totalPrice.toFixed(2)}`;
-      document.getElementById("amount").value = totalPrice.toFixed(2);
-    }
-
-    async function addComment() {
       const commentText = document.getElementById("comment-text").value;
       if (commentText.trim() !== "") {
         const commentList = document.getElementById("comment-list");
