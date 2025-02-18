@@ -207,6 +207,10 @@
       transition: color 0.5s ease-in-out;
     }
 
+    .navbar {
+      margin-top: 9px; /* Added margin-top to move the navbar down */
+    }
+
     .navbar nav ul {
       display: flex;
       justify-content: center;
@@ -230,11 +234,24 @@
       color: lightgoldenrodyellow;
     }
 
-    .top-left-small-image,
+    .top-left-small-image {
+      position: absolute;
+      top: 27px; /* Adjusted top for top-left-small-image */
+      width: 175px;
+      height: fit-content;
+      border: none;
+      border-radius: 10px;
+      z-index: 1;
+      opacity: 0.8;
+      mix-blend-mode: multiply;
+      background: transparent;
+      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+      /* Add transition effects */
+    }
     .top-right-small-image {
       position: absolute;
-      top: 6px;
-      width: 150px;
+      top: 5px; /* Adjusted top for top-left-small-image */
+      width: 175px;
       height: fit-content;
       border: none;
       border-radius: 10px;
@@ -282,8 +299,8 @@
     }
 
     .circle {
-      width: 300px;
-      height: 300px;
+      width: 270px; /* Reduced width */
+      height: 270px; /* Reduced height */
       border: 5px solid goldenrod;
       border-radius: 50%;
       position: absolute;
@@ -305,9 +322,6 @@
 
 <body style="background-color: rgb(243, 231, 231);">
   <div class="header-background">
-    <img src="15e272cefe5d0ca0d0cead7f925f1b46cc.jpg" alt="Top Left Small Image" class="top-left-small-image">
-    <img src="12 Purple-lilac-flowers-bouquet-vase-room_iphone_1080x1920.jpg" alt="Top Right Small Image"
-      class="top-right-small-image">
     <div class="circle-container">
       <div class="circle"></div>
       <h1 class="text-background">
@@ -330,6 +344,8 @@
     </div>
   </div>
   <hr class="styled-hr">
+  <img src="15e272cefe5d0ca0d0cead7f925f1b46cc.jpg" alt="Top Left Small Image" class="top-left-small-image">
+  <img src="12 Purple-lilac-flowers-bouquet-vase-room_iphone_1080x1920.jpg" alt="Top Right Small Image" class="top-right-small-image">
   <p style="color: slategray; text-align: center; margin-inline: 50px">
     <span style="font-size: larger; font-weight: bold">We Serve</span> you
     with the best <b><i>"Home Fragrances, Toiletries, Household Cleaning Essentials"</i></b> and many more.
