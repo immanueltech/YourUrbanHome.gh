@@ -272,6 +272,34 @@
       backdrop-filter: blur(5px);
       /* Add blur effect for a more moist appearance */
     }
+
+    .circle-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px; /* Ensure full visibility */
+    }
+
+    .circle {
+      width: 300px;
+      height: 300px;
+      border: 5px solid goldenrod;
+      border-radius: 50%;
+      position: absolute;
+      animation: rotate 10s linear infinite;
+      top: -55px; /* Raise the circle upwards */
+      clip-path: polygon(0% 10%, 100% 10%, 100% 90%, 0% 90%); /* Erase a small portion at the top */  
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
   </style>
 </head>
 
@@ -280,9 +308,12 @@
     <img src="15e272cefe5d0ca0d0cead7f925f1b46cc.jpg" alt="Top Left Small Image" class="top-left-small-image">
     <img src="12 Purple-lilac-flowers-bouquet-vase-room_iphone_1080x1920.jpg" alt="Top Right Small Image"
       class="top-right-small-image">
-    <h1 class="text-background">
-      <span class="small">Your</span> <span class="big">Urban</span> <span class="small">Home</span>
-    </h1>
+    <div class="circle-container">
+      <div class="circle"></div>
+      <h1 class="text-background">
+        <span class="small">Your</span> <span class="big">Urban</span> <span class="small">Home</span>
+      </h1>
+    </div>
     <div class="navbar">
       <nav>
         <ul>
@@ -333,7 +364,7 @@
     <p>
       <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone Icon"
         style="width: 20px; vertical-align: middle;">
-      <strong>Mobile:</strong> (+233) 598323235
+      <strong>Mobile or <img src="OIP.jpg" alt="WhatsApp Icon" style="width: 35px; vertical-align: middle;"> Whatsapp:</strong> (+233) 598323235
     </p>
     <p>
       <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email Icon"
@@ -411,6 +442,24 @@
     document.addEventListener("DOMContentLoaded", function () {
       const headerText = document.querySelector(".header-background h1");
       headerText.classList.add("fade-in");
+    });
+
+    // Add animation to the circle
+    document.addEventListener("DOMContentLoaded", function () {
+      const circle = document.querySelector(".circle");
+      circle.classList.add("rotate");
+    });
+
+    // Add hover effect to the circle
+    const circle = document.querySelector(".circle");
+    circle.addEventListener("mouseover", function () {
+      circle.style.transform = "scale(1.1)";
+      circle.style.transition = "transform 0.5s ease-in-out";
+    });
+
+    circle.addEventListener("mouseout", function () {
+      circle.style.transform = "scale(1)";
+      circle.style.transition = "transform 0.5s ease-in-out";
     });
   </script>
 </body>
