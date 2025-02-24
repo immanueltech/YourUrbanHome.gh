@@ -596,6 +596,11 @@
       totalItems--;
       totalPrice -= productPrice;
       document.getElementById("cart-total-items").textContent = `Total Items: ${totalItems}`;
+      document.getElementById("cart-total-price").textContent = `Total Price: GH₵${totalPrice.toFixed(2)}`;
+      document.getElementById("amount").value = totalPrice.toFixed(2);
+    }
+
+    async function addComment() {
       const commentText = document.getElementById("comment-text").value;
       if (commentText.trim() !== "") {
         const commentList = document.getElementById("comment-list");
@@ -781,8 +786,7 @@
     <h2>Contact Us</h2>
     <p>
       <img src="https://th.bing.com/th/id/OIP.oXKWfypMEAC8DMHWoHgo_wHaEK?w=272&h=180&c=7&r=0&o=5&pid=1.7"
-        alt="Instagram Logo">
-      Your_UrbanHome_
+        alt="Instagram Logo" style="width: 30px; vertical-align: middle;"> <strong>Instagram:</strong>Your_UrbanHome_
     </p>
     <p>
       <img src="https://img.icons8.com/ios-filled/50/000000/address.png" alt="Address Icon"
