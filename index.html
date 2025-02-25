@@ -317,13 +317,36 @@
         transform: rotate(360deg);
       }
     }
+
+    .diamond {
+      position: absolute;
+      top: -20px; /* Position at the top of the circle */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 30px;
+      background: url('path/to/diamond-image.png') no-repeat center center;
+      background-size: contain;
+      animation: sparkle 1.5s infinite;
+    }
+
+    @keyframes sparkle {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
   </style>
 </head>
 
 <body style="background-color: rgb(243, 231, 231);">
   <div class="header-background">
     <div class="circle-container">
-      <div class="circle"></div>
+      <div class="circle">
+        <div class="diamond"></div>
+      </div>
       <h1 class="text-background">
         <span class="small">YOUR</span> <span class="big">URBAN</span> <span class="small">HOME</span>
       </h1>
