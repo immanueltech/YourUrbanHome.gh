@@ -29,20 +29,26 @@
         }
 
         .background-container {
-            /* ...existing code... */
             max-width: 1200px;
             margin: 0 auto;
-            background: url('Living.webp') no-repeat center center;
-            background-size: cover;
-            /* use cover by default for balanced desktop fit */
-            background-repeat: no-repeat;
+            /* background removed so we use an actual image element for full visibility */
+            background: none;
             border-radius: 0;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             padding: 24px;
-            /* slightly reduced padding */
             min-height: 40vh;
             /* responsive height */
             height: auto;
+        }
+
+        /* new: responsive full image shown via <img> so the entire image is visible on all devices */
+        .bg-full {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 6px;
         }
 
         .styled-hr {
@@ -128,7 +134,8 @@
 
         .contact-us {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 28px;
+            /* increased separation */
             padding: 18px;
             background-color: papayawhip;
             border-radius: 10px;
@@ -238,6 +245,45 @@
                 margin-top: 28px;
             }
         }
+
+        /* Title + badge layout */
+        .title-with-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: nowrap;
+        }
+
+        .site-title {
+            color: goldenrod;
+            font-family: 'Arial', sans-serif;
+            font-size: 3rem; /* desktop size */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin: 0;
+        }
+
+        .header-badge {
+            width: 120px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .title-with-image {
+                flex-direction: column; /* stack on mobile */
+                gap: 8px;
+            }
+            .site-title {
+                font-size: 1.8rem; /* smaller on mobile */
+            }
+            .header-badge {
+                width: 90px; /* smaller badge on mobile */
+            }
+        }
     </style>
     <title>YourUrbanHomeAboutUs.gh</title>
 </head>
@@ -245,22 +291,20 @@
 <body>
     <div class="background-container">
         <h1 style="color: goldenrod; text-align: center; font-family: 'Arial', sans-serif; font-size: 3em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">YOUR URBAN HOME</h1>
-        <header>
-            <div class="header-text" style="padding: 3px;">
-                <hr class="styled-hr">
-                <h3 style="color: slategray;"><i>"Get to know us and our mission to provide you with the best home
-                        experience".</i></h3>
-                <hr class="styled-hr">
-            </div>
-        </header>
+
         <a href="index.html" style="margin-top: -10px; display: inline-block;">Home</a>
+
         <main>
+            <img src="bc9ba54d-10d2-4298-98aa-5f6ad4fd5da4.__CR0,0,970,600_PT0_SX970_V1___.jpg" alt="Your Urban Home" class="bg-full">
+            
+            <!-- Added image and content container below background -->
             <div style="text-align: center; margin: 20px 0;">
-                <img src="Animation - About Us.png" alt="About Us Insignia" style="width: 150px; height: auto;">
+                <img src="Animation - About Us.png" alt="About Us badge" style="width: 150px; height: auto;">
+                <!-- Space for future content -->
+                <div class="content-area" style="margin-top: 20px;">
+                    <!-- Content will go here -->
+                </div>
             </div>
-            <p style="color: slategray; text-align: center; margin-inline:50px">
-                <span style="font-size: larger; font-weight: bold">Get To Know Us!</span>
-            </p>
         </main>
         <br>
     </div>
