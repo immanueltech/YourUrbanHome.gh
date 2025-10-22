@@ -10,6 +10,29 @@
     <title>YourUrbanHomeAboutUs.gh</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        body {
+            background-color: rgba(233, 235, 228, 0.671); /* Set a base background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 0; /* Remove padding from the body */
+            margin: 0; /* Remove margin from the body */
+        }
+
+        .background-container {
+            width: 100%; /* Stretch the container to fit the full width */
+            margin: 0; /* Remove side margins */
+            background: url('Living.webp') no-repeat center center;
+            background-size: contain; /* Ensure the full image is visible */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            border-radius: 0; /* Remove border radius for full-width effect */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add shadow effect to the background image */
+            padding: 20px;
+            height: auto; /* Allow height to adjust based on content */
+            min-height: 600px; /* Set a minimum height for larger screens */
+        }
+
         .styled-hr {
             border: 0;
             height: 2px;
@@ -56,6 +79,12 @@
                 font-size: 2em; /* Adjust font size for smaller screens */
                 text-align: center; /* Ensure text is centered */
             }
+
+            .background-container {
+                background-size: contain; /* Ensure the full image adjusts for smaller screens */
+                min-height: 400px; /* Adjust minimum height for smaller devices */
+                padding: 10px; /* Adjust padding for smaller screens */
+            }
         }
 
         .header-background {
@@ -66,17 +95,26 @@
 
         .header-text {
             text-align: center;
-            padding: 50px;
-            /* Add padding to the header text */
+            padding: 20px; /* Add padding inside the box */
+            border-radius: 10px; /* Add rounded corners */
+            background-color:; /* Match the background color */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+            display: block; /* Ensure the box behaves as a block element */
+            margin: 20px auto; /* Center the box horizontally and add vertical spacing */
+            max-width: 27%; /* Limit the width for better readability */
         }
 
         .contact-us {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 20px; /* Add margin to separate from the background container */
             padding: 20px;
             background-color: papayawhip; /* Changed background color */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%; /* Ensure it spans the full width */
+            max-width: 1200px; /* Limit the maximum width for larger screens */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact-us img {
@@ -86,36 +124,69 @@
 
         .contact-us p {
             margin: 5px 0;
+            font-size: 16px; /* Default font size */
+        }
+
+        @media (max-width: 600px) {
+            .contact-us {
+                padding: 15px; /* Reduce padding for smaller screens */
+                border-radius: 5px; /* Reduce border radius for smaller devices */
+            }
+
+            .contact-us p {
+                font-size: 14px; /* Adjust font size for smaller screens */
+            }
+        }
+
+        .footer-background {
+            background-color: rgba(233, 235, 228, 0.9); /* Add a subtle background color */
+            text-align: center;
+            padding: 20px; /* Increase padding for better readability */
+            width: 100%; /* Ensure it spans the full width */
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow at the top */
+        }
+
+        .footer-content p {
+            font-size: 16px; /* Increase font size for readability */
+            color: goldenrod; /* Use a readable color */
+            margin: 0; /* Remove default margin */
+        }
+
+        @media (max-width: 600px) {
+            .footer-background {
+                padding: 15px; /* Adjust padding for smaller screens */
+            }
+
+            .footer-content p {
+                font-size: 14px; /* Adjust font size for smaller screens */
+            }
         }
     </style>
     <title>YourUrbanHomeAboutUs.gh</title>
 </head>
 
-<body style="background-color: rgba(255, 213, 253, 0.808);">
-
-    <h1 style="color: goldenrod; text-align: center; font-family: 'Arial', sans-serif; font-size: 3em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">YOUR URBAN HOME</h1>
-    <br>
-
-    <header>
-
-        <div class="header-text" style="padding: 3px;">
-            <hr class="styled-hr">
-            <h3 style="color: slategray;"><i>"Get to know us and our mission to provide you with the best home
-                    experience".</i></h3>
-            <hr class="styled-hr">
-        </div>
+<body>
+    <div class="background-container">
+        <h1 style="color: goldenrod; text-align: center; font-family: 'Arial', sans-serif; font-size: 3em; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">YOUR URBAN HOME</h1>
+        <header>
+            <div class="header-text" style="padding: 3px;">
+                <hr class="styled-hr">
+                <h3 style="color: slategray;"><i>"Get to know us and our mission to provide you with the best home
+                        experience".</i></h3>
+                <hr class="styled-hr">
+            </div>
+        </header>
+        <a href="index.html" style="margin-top: -10px; display: inline-block;">Home</a>
+        <main>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="Animation - About Us.png" alt="About Us Insignia" style="width: 150px; height: auto;">
+            </div>
+            <p style="color: slategray; text-align: center; margin-inline:50px">
+                <span style="font-size: larger; font-weight: bold">Get To Know Us!</span>
+            </p>
+        </main>
         <br>
-    </header>
-    <a href="index.html" style="margin-top: -10px; display: inline-block;">Home</a>
-    <main>
-        <div style="text-align: center; margin: 20px 0;">
-            <img src="Animation - About Us.png" alt="About Us Insignia" style="width: 150px; height: auto;">
-        </div>
-        <p style="color: slategray; text-align: center; margin-inline:50px">
-            <span style="font-size: larger; font-weight: bold">Get To Know Us!</span>
-        </p>
-    </main>
-    <br>
+    </div>
 
     <!-- Contact Us Section -->
     <div class="contact-us">
