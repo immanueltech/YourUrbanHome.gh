@@ -10,27 +10,39 @@
     <title>YourUrbanHomeAboutUs.gh</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        /* make box-sizing predictable on all devices */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: rgba(233, 235, 228, 0.671); /* Set a base background color */
+            background-color: rgba(233, 235, 228, 0.671);
+            /* Set a base background color */
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 0; /* Remove padding from the body */
-            margin: 0; /* Remove margin from the body */
+            padding: 0;
+            /* Remove padding from the body */
+            margin: 0;
+            /* Remove margin from the body */
         }
 
         .background-container {
-            width: 100%; /* Stretch the container to fit the full width */
-            margin: 0; /* Remove side margins */
+            /* ...existing code... */
+            max-width: 1200px;
+            margin: 0 auto;
             background: url('Living.webp') no-repeat center center;
-            background-size: contain; /* Ensure the full image is visible */
-            background-repeat: no-repeat; /* Prevent the image from repeating */
-            border-radius: 0; /* Remove border radius for full-width effect */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add shadow effect to the background image */
-            padding: 20px;
-            height: auto; /* Allow height to adjust based on content */
-            min-height: 600px; /* Set a minimum height for larger screens */
+            background-size: cover;
+            /* use cover by default for balanced desktop fit */
+            background-repeat: no-repeat;
+            border-radius: 0;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            padding: 24px;
+            /* slightly reduced padding */
+            min-height: 40vh;
+            /* responsive height */
+            height: auto;
         }
 
         .styled-hr {
@@ -76,14 +88,19 @@
             }
 
             h1 {
-                font-size: 2em; /* Adjust font size for smaller screens */
-                text-align: center; /* Ensure text is centered */
+                font-size: 2em;
+                /* Adjust font size for smaller screens */
+                text-align: center;
+                /* Ensure text is centered */
             }
 
             .background-container {
-                background-size: contain; /* Ensure the full image adjusts for smaller screens */
-                min-height: 400px; /* Adjust minimum height for smaller devices */
-                padding: 10px; /* Adjust padding for smaller screens */
+                background-size: contain;
+                /* Ensure the full image adjusts for smaller screens */
+                min-height: auto;
+                /* Adjust minimum height for smaller devices */
+                padding: 12px;
+                /* Adjust padding for smaller screens */
             }
         }
 
@@ -93,26 +110,31 @@
             /* Ensure the header has a minimum height */
         }
 
+        /* Header box - centered and responsive */
         .header-text {
             text-align: center;
-            padding: 20px; /* Add padding inside the box */
-            border-radius: 10px; /* Add rounded corners */
-            background-color:; /* Match the background color */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
-            display: block; /* Ensure the box behaves as a block element */
-            margin: 20px auto; /* Center the box horizontally and add vertical spacing */
-            max-width: 27%; /* Limit the width for better readability */
+            padding: 18px;
+            border-radius: 10px;
+            background-color: rgba(233, 235, 228, 0.95);
+            /* visible but subtle on desktop */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+            display: block;
+            margin: 20px auto;
+            max-width: 800px;
+            /* allow wider on desktop */
+            width: 90%;
+            /* but responsive on small screens */
         }
 
         .contact-us {
             text-align: center;
-            margin-top: 20px; /* Add margin to separate from the background container */
-            padding: 20px;
-            background-color: papayawhip; /* Changed background color */
+            margin-top: 20px;
+            padding: 18px;
+            background-color: papayawhip;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 100%; /* Ensure it spans the full width */
-            max-width: 1200px; /* Limit the maximum width for larger screens */
+            width: calc(100% - 40px);
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -124,41 +146,96 @@
 
         .contact-us p {
             margin: 5px 0;
-            font-size: 16px; /* Default font size */
+            font-size: 16px;
+            /* Default font size */
         }
 
         @media (max-width: 600px) {
             .contact-us {
-                padding: 15px; /* Reduce padding for smaller screens */
-                border-radius: 5px; /* Reduce border radius for smaller devices */
+                padding: 12px;
+                /* Reduce padding for smaller screens */
+                border-radius: 5px;
+                /* Reduce border radius for smaller devices */
+                width: calc(100% - 24px);
             }
 
             .contact-us p {
-                font-size: 14px; /* Adjust font size for smaller screens */
+                font-size: 14px;
+                /* Adjust font size for smaller screens */
             }
         }
 
         .footer-background {
-            background-color: rgba(233, 235, 228, 0.9); /* Add a subtle background color */
+            background-color: rgba(233, 235, 228, 0.9);
+            /* Add a subtle background color */
             text-align: center;
-            padding: 20px; /* Increase padding for better readability */
-            width: 100%; /* Ensure it spans the full width */
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow at the top */
+            padding: 20px;
+            /* Increase padding for better readability */
+            width: 100%;
+            /* Ensure it spans the full width */
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            /* Add a subtle shadow at the top */
         }
 
         .footer-content p {
-            font-size: 16px; /* Increase font size for readability */
-            color: goldenrod; /* Use a readable color */
-            margin: 0; /* Remove default margin */
+            font-size: 16px;
+            /* Increase font size for readability */
+            color: goldenrod;
+            /* Use a readable color */
+            margin: 0;
+            /* Remove default margin */
         }
 
         @media (max-width: 600px) {
             .footer-background {
-                padding: 15px; /* Adjust padding for smaller screens */
+                padding: 15px;
+                /* Adjust padding for smaller screens */
             }
 
             .footer-content p {
-                font-size: 14px; /* Adjust font size for smaller screens */
+                font-size: 14px;
+                /* Adjust font size for smaller screens */
+            }
+        }
+
+        /* Desktop-specific adjustments */
+        @media (min-width: 1024px) {
+            .background-container {
+                background-size: cover;
+                /* ensure image fills large view nicely */
+                min-height: 75vh;
+                /* taller container on desktop */
+                padding: 40px 48px;
+                /* more breathing room */
+                max-width: 1400px;
+                /* allow wider layouts */
+            }
+
+            .header-text {
+                max-width: 60%;
+                /* wider box on desktop */
+                padding: 24px 32px;
+                /* larger padding */
+                margin: 28px auto;
+                /* vertical spacing */
+                border-radius: 12px;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+                background-color: rgba(255, 255, 255, 0.85);
+                /* slightly brighter to contrast background */
+            }
+
+            .header-background h1 {
+                font-size: 3.6em;
+                /* larger title on desktop */
+                letter-spacing: 1px;
+            }
+
+            .contact-us {
+                max-width: 1200px;
+                padding: 24px 32px;
+                font-size: 18px;
+                /* slightly larger contact text */
+                margin-top: 28px;
             }
         }
     </style>
