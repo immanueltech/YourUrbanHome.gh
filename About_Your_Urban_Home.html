@@ -284,6 +284,53 @@
                 width: 90px; /* smaller badge on mobile */
             }
         }
+
+        .about-content {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            text-align: justify;
+            line-height: 1.8;
+            color: #555;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content h2 {
+            color: goldenrod;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-content p:first-of-type {
+            font-size: 1.2rem;
+            color: #444;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .about-content {
+                padding: 1.5rem;
+                margin: 1rem;
+                text-align: left;
+            }
+
+            .about-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .about-content p {
+                font-size: 1rem;
+            }
+        }
     </style>
     <title>YourUrbanHomeAboutUs.gh</title>
 </head>
@@ -303,6 +350,17 @@
                 <!-- Space for future content -->
                 <div class="content-area" style="margin-top: 20px;">
                     <!-- Content will go here -->
+                    <div class="about-content">
+                        <h2>Welcome to Your Urban Home: Your trusted source for quality living.</h2> 
+                        
+                        <p>We specialize in Home Fragrances, Toiletries, Office & Household Cleaning Essentials, and Everyday Home Products designed to bring freshness, comfort, and style to every space you care about. From your home to your office, we provide products that make clean living effortless and enjoyable.</p>
+                        
+                        <p>At Your Urban Home, we're committed to quality, convenience, and customer satisfaction. Our products are carefully selected to meet modern lifestyle needs; practical, affordable, and beautifully made.</p>
+                        
+                        <p>With our fast and reliable delivery service, you can count on us to bring your essentials right to your doorstep, safely and on time: every single time.</p>
+                        
+                        <p>Because at Your Urban Home, we believe that a clean, well-scented, and organized space inspires better living every day.</p>
+                    </div>
                 </div>
             </div>
         </main>
