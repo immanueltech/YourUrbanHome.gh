@@ -338,6 +338,436 @@
         opacity: 0.5;
       }
     }
+
+    /* Hero / first-impression */
+    .hero {
+      position: relative;
+      background: url('home wallpaper.jpg') center/cover no-repeat;
+      min-height: 56vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+      color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.25));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1100px;
+      padding: 1rem 2rem;
+    }
+
+    .hero-title {
+      margin: 0 0 .4rem;
+      font-size: clamp(1.6rem, 4.2vw, 2.6rem);
+      line-height: 1.05;
+      color: #fff;
+      letter-spacing: 0.6px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .hero-sub {
+      margin: 0 0 1rem;
+      font-size: clamp(.95rem, 2.2vw, 1.1rem);
+      color: rgba(255, 235, 179, 0.95);
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: goldenrod;
+      color: #222;
+      padding: .75rem 1.25rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,0.22); }
+
+    @media (max-width:600px){
+      .hero { min-height: 40vh; padding: 2rem .75rem; border-radius: 6px; }
+      .hero-content { padding: .5rem 1rem; }
+      .hero-title { font-size: 1.6rem; }
+      .hero-sub { font-size: .95rem; }
+      .hero-cta { padding: .6rem 1rem; }
+    }
+
+    /* Featured lifestyle product strip */
+    .featured {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-body {
+      padding: 1rem;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+
+    .product-title {
+      margin: 0;
+      font-size: 1.05rem;
+      color: #333;
+      font-weight: 700;
+    }
+
+    .product-desc {
+      margin: 0;
+      color: #666;
+      font-size: .95rem;
+      line-height: 1.4;
+      flex: 1 1 auto;
+    }
+
+    .product-cta {
+      display: inline-block;
+      margin-top: 8px;
+      background: goldenrod;
+      color: #222;
+      padding: .5rem .85rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      align-self: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .featured-grid { grid-template-columns: repeat(2, 1fr); }
+      .product-img { height: 160px; }
+    }
+
+    @media (max-width: 600px) {
+      .featured-grid { grid-template-columns: 1fr; }
+      .product-img { height: 140px; }
+      .featured { margin: 1rem auto; padding: 0 .75rem; }
+    }
+
+    /* Categories / shop-by category */
+    .categories {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .category-card {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+      transition: transform .16s ease, box-shadow .16s ease;
+      padding: 0;
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+    }
+
+    .category-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .category-body {
+      padding: 0.9rem 1rem;
+    }
+
+    .category-title {
+      margin: 0 0 .4rem 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .category-desc {
+      margin: 0;
+      color: #666;
+      font-size: .95rem;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 900px) {
+      .categories-grid { grid-template-columns: repeat(2, 1fr); }
+      .category-img { height: 130px; }
+    }
+
+    @media (max-width: 600px) {
+      .categories-grid { grid-template-columns: 1fr; }
+      .category-img { height: 160px; }
+      .categories { padding: 0 .75rem; margin: 1rem auto; }
+    }
+
+    /* Testimonials / social proof */
+    .testimonials {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+
+    .testimonial-quote {
+      font-style: italic;
+      color: #444;
+      line-height: 1.5;
+      flex: 1 1 auto;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      color: #222;
+    }
+
+    .testimonial-stars {
+      color: goldenrod;
+      font-size: 1rem;
+      margin-right: 6px;
+    }
+
+    @media (max-width: 900px) {
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonials { padding: 0 .75rem; margin: 1rem auto; }
+    }
+
+    /* Trust / benefits + newsletter */
+    .trust {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .trust-grid {
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      flex: 1 1 220px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trust-icon {
+      width: 56px;
+      height: 56px;
+      background: goldenrod;
+      color: #111;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .trust-title { margin: 0; font-weight: 700; color: #222; }
+    .trust-desc { margin: 0; font-size: .95rem; color: #666; }
+
+    .newsletter {
+      margin-top: 18px;
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      min-width: 240px;
+    }
+
+    .newsletter button {
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: goldenrod;
+      border: none;
+      color: #222;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .trust-grid { gap: .8rem; }
+    }
+
+    @media (max-width: 600px) {
+      .trust-item { flex: 1 1 100%; text-align: left; padding: 14px; }
+      .trust-desc { font-size: .95rem; }
+      .newsletter { width: 100%; padding: 0 1rem; }
+      .newsletter input[type="email"] { width: 100%; max-width: 420px; }
+    }
+
+    /* FAQ / Accordion */
+    .faq {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .faq h2 {
+      text-align: center;
+      color: goldenrod;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+
+    .accordion {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .accordion-item + .accordion-item {
+      border-top: 1px solid #eee;
+    }
+
+    .accordion-button {
+      width: 100%;
+      padding: 16px;
+      background: transparent;
+      border: 0;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .accordion-button:focus { outline: 3px solid rgba(255,215,0,0.25); }
+
+    .accordion-icon {
+      transition: transform .18s ease;
+      color: goldenrod;
+      font-size: 1.15rem;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .28s ease, padding .18s ease;
+      padding: 0 16px;
+      color: #555;
+      line-height: 1.6;
+      font-size: .98rem;
+    }
+
+    .accordion-item.open .accordion-content {
+      padding: 12px 16px 18px;
+      max-height: 400px; /* large enough for content */
+    }
+
+    .accordion-item.open .accordion-icon {
+      transform: rotate(45deg);
+    }
+
+    @media (max-width:600px){
+      .accordion-button { padding: 12px; font-size: .98rem; }
+      .accordion-content { font-size: .95rem; }
+    }
   </style>
 </head>
 
@@ -366,6 +796,195 @@
       </nav>
     </div>
   </div>
+
+  <!-- Hero: strong first impression -->
+  <section class="hero" aria-label="Hero — refresh your space">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-content">
+      <h2 class="hero-title">Refresh your space in minutes</h2>
+      <p class="hero-sub">High‑quality home fragrances, toiletries and cleaning essentials; practical, beautifully made, and delivered fast.</p>
+      <a class="hero-cta" href="Your_Urban_Home_Products.html">Shop Bestsellers</a>
+    </div>
+  </section>
+
+  <!-- Featured lifestyle products -->
+  <section class="featured" aria-label="Featured lifestyle products">
+    <div class="featured-grid">
+      <article class="product-card">
+        <img src="living room spray.webp" alt="Fresh room spray in living room" class="product-img">
+        <div class="product-body">
+          <h3 class="product-title">Living Room Fresh Spray</h3>
+          <p class="product-desc">A subtle, long-lasting scent that lifts the room: perfect for everyday freshness.</p>
+          <a class="product-cta" href="Your_Urban_Home_Products.html">View</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <img src="toiletries.jpg" alt="Toiletries styled on shelf" class="product-img">
+        <div class="product-body">
+          <h3 class="product-title">Care & Toiletries Set</h3>
+          <p class="product-desc">Curated toiletries with gentle formulas: elegant packaging for every bathroom.</p>
+          <a class="product-cta" href="Your_Urban_Home_Products.html">View</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <img src="cleaning-product.jpg" alt="Cleaning essentials in kitchen" class="product-img">
+        <div class="product-body">
+          <h3 class="product-title">Cleaning Essentials Bundle</h3>
+          <p class="product-desc">Everything you need to keep surfaces sparkling; powerful, safe, and easy to use.</p>
+          <a class="product-cta" href="Your_Urban_Home_Products.html">View</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Categories (third component) -->
+  <section class="categories" aria-label="Shop by category">
+    <div class="categories-grid">
+      <a class="category-card" href="Your_Urban_Home_Products.html?cat=fragrances">
+        <img src="fragrance.jpg" alt="Home fragrances" class="category-img">
+        <div class="category-body">
+          <h4 class="category-title">Fragrances</h4>
+          <p class="category-desc">Room sprays, diffusers and candles to refresh every space.</p>
+        </div>
+      </a>
+
+      <a class="category-card" href="Your_Urban_Home_Products.html?cat=toiletries">
+        <img src="wash room toiletries.webp" alt="Toiletries" class="category-img">
+        <div class="category-body">
+          <h4 class="category-title">Toiletries</h4>
+          <p class="category-desc">Daily essentials with gentle, effective formulas.</p>
+        </div>
+      </a>
+
+      <a class="category-card" href="Your_Urban_Home_Products.html?cat=cleaning">
+        <img src="clean.jpg" alt="Cleaning essentials" class="category-img">
+        <div class="category-body">
+          <h4 class="category-title">Cleaning Essentials</h4>
+          <p class="category-desc">Multi-surface cleaners and bundles for easy upkeep.</p>
+        </div>
+      </a>
+
+      <a class="category-card" href="Your_Urban_Home_Products.html?cat=bundles">
+        <img src="gifts.jpg" alt="Bundles & gifts" class="category-img">
+        <div class="category-body">
+          <h4 class="category-title">Bundles & Gifts</h4>
+          <p class="category-desc">Curated sets perfect for gifting or trying more products.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Testimonials (fourth component) -->
+  <section class="testimonials" aria-label="Customer testimonials">
+    <div class="testimonials-grid">
+      <article class="testimonial-card">
+        <p class="testimonial-quote">"Lovely scent and quick delivery, and guess what: my living room feels refreshed every day."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-stars">★★★★★</span>
+          <span class="testimonial-name">Animwaa, Takoradi</span>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <p class="testimonial-quote">"Packaging is beautiful and products work well. Great value for money."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-stars">★★★★★</span>
+          <span class="testimonial-name">Kofi, Accra</span>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <p class="testimonial-quote">"Reliable delivery and the cleaning bundle made chores much easier. Highly recommend."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-stars">★★★★☆</span>
+          <span class="testimonial-name">Yvonne, Kumasi</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Trust / Why shop with us + newsletter (fifth component) -->
+  <section class="trust" aria-label="Why shop with us">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">✓</div>
+        <h4 class="trust-title">Quality Products</h4>
+        <p class="trust-desc">Carefully selected items that perform and last.</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">🚚</div>
+        <h4 class="trust-title">Fast Delivery</h4>
+        <p class="trust-desc">Reliable shipping to your doorstep across Ghana.</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">💳</div>
+        <h4 class="trust-title">Secure Payments</h4>
+        <p class="trust-desc">Multiple payment options and safe checkout.</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon">⭐</div>
+        <h4 class="trust-title">Customer Care</h4>
+        <p class="trust-desc">Friendly support and easy returns.</p>
+      </div>
+    </div>
+
+    <div class="newsletter" aria-label="Newsletter signup">
+      <input type="email" placeholder="Enter your email for updates">
+      <button type="button">Subscribe</button>
+    </div>
+  </section>
+
+  <!-- FAQ (sixth component) -->
+  <section class="faq" aria-label="Frequently asked questions">
+    <h2>Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <button class="accordion-button" aria-expanded="false">
+          What is your delivery time?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content" aria-hidden="true">
+          We aim to deliver within 2 to 5 business days across Ghana. Exact timing depends on your location and available shipping option.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" aria-expanded="false">
+          Do you offer returns or exchanges?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content" aria-hidden="true">
+          Yes; if a product arrives damaged or incorrect, contact us within 7 days and we'll arrange a return or replacement.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" aria-expanded="false">
+          Are your products safe for homes with pets?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content" aria-hidden="true">
+          Many of our products are pet-safe; check individual product pages for ingredients and guidance. When in doubt, keep pets away during application.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-button" aria-expanded="false">
+          What payment methods do you accept?
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content" aria-hidden="true">
+          We accept mobile money and cash on delivery (where available). Secure checkout is provided for online payments.
+        </div>
+      </div>
+    </div>
+  </section>
+
   <hr class="styled-hr">
   <img src="15e272cefe5d0ca0d0cead7f925f1b46cc.jpg" alt="Top Left Small Image" class="top-left-small-image">
   <img src="12 Purple-lilac-flowers-bouquet-vase-room_iphone_1080x1920.jpg" alt="Top Right Small Image" class="top-right-small-image">
@@ -499,6 +1118,31 @@
       circle.style.transform = "scale(1)";
       circle.style.transition = "transform 0.5s ease-in-out";
     });
+
+    // FAQ accordion script (accessible)
+    (function () {
+      const accordion = document.getElementById('faqAccordion');
+      if (!accordion) return;
+      accordion.addEventListener('click', function (e) {
+        const btn = e.target.closest('.accordion-button');
+        if (!btn) return;
+        const item = btn.parentElement;
+        const isOpen = item.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        const content = item.querySelector('.accordion-content');
+        if (content) content.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      });
+
+      // keyboard support: Enter / Space toggle when focused on button
+      accordion.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          const btn = e.target.closest('.accordion-button');
+          if (!btn) return;
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    })();
   </script>
 </body>
 
